@@ -1,7 +1,8 @@
 
+import * as DOMPurify from 'dompurify';
+
 const jwtRE = /^([A-Za-z0-9+/_]+)\.([A-Za-z0-9+/_]+)\.([A-Za-z0-9+/_]+)$/;
 
-//decodeJWT = () => { // eslint-disable-line no-unused-vars
 export function decodeJWT(){ 
     const encodedJWT = document.getElementById('jwtInput').value;
     var headerTextArea = document.getElementById('output-header');
@@ -17,10 +18,11 @@ export function decodeJWT(){
             const decodedHeader = atob(encodedHeader);
             const decodedPayload = atob(encodedPayload);
 
-            //TODO Stanitize the input before displaying it
+            const cleanHeader = DOMPurify.sanitize(decodedHeader);
+            const cleanPayload = DOMPurify.sanitize(decodedPayload);
 
-            headerTextArea.innerHTML = decodedHeader;
-            payloadTextArea.innerHTML = decodedPayload;
+            headerTextArea.innerHTML = cleanHeader;
+            payloadTextArea.innerHTML = cleanPayload;
 
         }catch(e){
             console.log('failed to decode');
