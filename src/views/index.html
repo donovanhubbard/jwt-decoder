@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <module href="/components/head.html"></module>
+    <script src="bundle.js"></script>
+    <title>JWT Decoder</title>
+</head>
+<body>
+    <header>
+        <h1>JWT Decoder</h1>
+    </header>
+    <main>
+        <div class="encoder-input">
+            <label for="jwtInput">Input encoded JWT</label>
+            <textarea id="jwtInput">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</textarea>
+            <button onclick="decodeJWT()">Decode</button>
+        </div>
+        <div class="output-containers header">
+            <div class="output-container" >
+                <h2>header</h2>
+                <div id="output-header" class="header">
+                    {
+
+                    }
+                </div>
+            </div>
+            <div class="output-container payload" >
+                <h2>payload</h2>
+                <div id="output-payload" class="payload">
+                    {
+
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
