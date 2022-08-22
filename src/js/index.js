@@ -1,7 +1,8 @@
 
 const jwtRE = /^([A-Za-z0-9+/_]+)\.([A-Za-z0-9+/_]+)\.([A-Za-z0-9+/_]+)$/;
 
-decodeJWT = () => { // eslint-disable-line no-unused-vars
+//decodeJWT = () => { // eslint-disable-line no-unused-vars
+export function decodeJWT(){ 
     const encodedJWT = document.getElementById('jwtInput').value;
     var headerTextArea = document.getElementById('output-header');
     var payloadTextArea = document.getElementById('output-payload');
@@ -31,4 +32,4 @@ decodeJWT = () => { // eslint-disable-line no-unused-vars
         //TODO display an error message
         console.log('INVALID JWT');
     }
-};
+}
