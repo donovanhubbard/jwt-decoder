@@ -1,5 +1,6 @@
 
 import * as DOMPurify from 'dompurify';
+import {Buffer} from 'buffer';
 
 const jwtRE = /^([A-Za-z0-9+/_]+)\.([A-Za-z0-9+/_]+)\.([A-Za-z0-9+/_]+)$/;
 
@@ -14,15 +15,14 @@ export function decodeJWT(){
         const encodedPayload = match[2];
 
         try{
-            //TODO fix deprecation
-            const decodedHeader = atob(encodedHeader);
-            const decodedPayload = atob(encodedPayload);
+            const cleanHeader = DOMPurify.sanitize(encodedHeader);
+            const cleanPayload = DOMPurify.sanitize(encodedPayload);
 
-            const cleanHeader = DOMPurify.sanitize(decodedHeader);
-            const cleanPayload = DOMPurify.sanitize(decodedPayload);
+            const decodedHeader = Buffer.from(cleanHeader, 'base64');
+            const decodedPayload = Buffer.from(cleanPayload, 'base64');
 
-            headerTextArea.innerHTML = cleanHeader;
-            payloadTextArea.innerHTML = cleanPayload;
+            headerTextArea.innerHTML = decodedHeader;
+            payloadTextArea.innerHTML = decodedPayload;
 
         }catch(e){
             console.log('failed to decode');

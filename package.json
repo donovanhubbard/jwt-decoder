@@ -35,6 +35,7 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "dompurify": "^2.3.10"
   }
 }
