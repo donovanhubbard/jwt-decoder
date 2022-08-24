@@ -2,12 +2,17 @@
 import * as DOMPurify from 'dompurify';
 import {Buffer} from 'buffer';
 
-const jwtRE = /^([A-Za-z0-9+/_]+)\.([A-Za-z0-9+/_]+)\.([A-Za-z0-9+/_]+)$/;
+const jwtRE = /^([A-Za-z0-9+/_=]+)\.([A-Za-z0-9+/_=]+)\.([A-Za-z0-9+/_=]+)$/;
 
 export function decodeJWT(){ 
     const encodedJWT = document.getElementById('jwtInput').value;
     var headerTextArea = document.getElementById('output-header');
     var payloadTextArea = document.getElementById('output-payload');
+    var errorDisplay = document.getElementById('error-banner');
+
+    headerTextArea.innerHTML = '';
+    payloadTextArea.innerHTML = '';
+    errorDisplay.innerHTML = '';
 
     if(jwtRE.test(encodedJWT)){
         const match = jwtRE.exec(encodedJWT);
@@ -23,15 +28,17 @@ export function decodeJWT(){
 
             headerTextArea.innerHTML = decodedHeader;
             payloadTextArea.innerHTML = decodedPayload;
+            
 
         }catch(e){
             console.log('failed to decode');
             console.log(e);
-            //TODO display an error message
+            const message = 'Failed to decode';
+            errorDisplay.innerHTML = message;
         }
         
     }else{
-        //TODO display an error message
-        console.log('INVALID JWT');
+        const message = 'Invalid JWT';
+        errorDisplay.innerHTML = message;
     }
 }
