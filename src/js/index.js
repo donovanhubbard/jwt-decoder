@@ -5,9 +5,10 @@ import {Buffer} from 'buffer';
 const jwtRE = /^([A-Za-z0-9+/_=]+)\.([A-Za-z0-9+/_=]+)\.([A-Za-z0-9+/_=]+)$/;
 
 export function decodeJWT(){ 
+    clearError();
     const encodedJWT = document.getElementById('jwtInput').value;
-    var headerTextArea = document.getElementById('output-header');
-    var payloadTextArea = document.getElementById('output-payload');
+    var headerTextArea = document.getElementById('headerTextArea');
+    var payloadTextArea = document.getElementById('payloadTextArea');
     var errorDisplay = document.getElementById('error-banner');
 
     headerTextArea.innerHTML = '';
@@ -33,12 +34,21 @@ export function decodeJWT(){
         }catch(e){
             console.log('failed to decode');
             console.log(e);
-            const message = 'Failed to decode';
-            errorDisplay.innerHTML = message;
+            displayError('Failed to decode');
         }
         
     }else{
-        const message = 'Invalid JWT';
-        errorDisplay.innerHTML = message;
+        displayError('Invalid JWT');
     }
+}
+
+function displayError(msg){
+    var errorDisplay = document.getElementById('error-banner');
+    errorDisplay.innerHTML = msg;
+    errorDisplay.classList.remove('banner-off');
+}
+
+function clearError(){
+    var errorDisplay = document.getElementById('error-banner');
+    errorDisplay.classList.add('banner-off');
 }

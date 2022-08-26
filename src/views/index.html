@@ -3,34 +3,46 @@
 <head>
     <module href="/components/head.html"></module>
     <script src="bundle.js"></script>
+    <link rel="stylesheet" href="index.css">
     <title>JWT Decoder</title>
 </head>
 <body>
-    <header>
-        <h1>JWT Decoder</h1>
+    <header class="title-bar">
+        <h1>JWT DECODER</h1>
     </header>
     <main>
-        <div class="encoder-input">
-            <label for="jwtInput">Input encoded JWT</label>
-            <textarea id="jwtInput">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</textarea>
-            <button onclick="bundle.decodeJWT()">Decode</button>
-        </div>
-        <div id="error-banner">
+        <div class="container-body">
 
-        </div>
-        <div class="output-containers header">
-            <div class="output-container" >
-                <h2>Header</h2>
-                <div id="output-header" class="header">
+            <div class="encoder-input">
+                <h2>Input encoded JWT</h2>
+                <textarea id="jwtInput">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</textarea>
+                <div class="encoder-footer">
+                    <button class="btn" onclick="bundle.decodeJWT()">Decode</button>
                 </div>
             </div>
-            <div class="output-container payload" >
-                <h2>Payload</h2>
-                <div id="output-payload" class="payload">
+            <div class="error-banner banner-off" id="error-banner">
+
+            </div>
+            
+            <div class="output-containers header">
+                <div class="output-container" >
+                    <h2>Header</h2>
+                    <div id="output-header" class="header">
+                        <textarea id="headerTextArea">
+
+                        </textarea>
+                    </div>
+                </div>
+                <div class="output-container payload" >
+                    <h2>Payload</h2>
+                    <div id="output-payload" class="payload">
+                        <textarea id="payloadTextArea">
+                            
+                        </textarea>
+                    </div>
                 </div>
             </div>
         </div>
-
     </main>
 </body>
 </html>

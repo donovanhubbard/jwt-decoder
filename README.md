@@ -6,9 +6,12 @@ npm project was setup according to this guide. https://wweb.dev/blog/how-to-crea
 
 # Install guide
 
-- Add styling
+
+
+
 - ~~remove decoding deprecation warning~~
-- enable error output on decoding
+- ~~enable error output on decoding~~
+- ~~style the site~~
 - format the produced json so it looks pretty
 - logo?
 
