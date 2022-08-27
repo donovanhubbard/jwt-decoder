@@ -11,11 +11,6 @@ npm run build:all
 
 The resulting assets will be produced in the `dist/` folder and are ready to be used on your static site host of choice.
 
-
-# TODO
-- format the produced json so it looks pretty
-as an example look at https://github.com/circlecell/jsonlint.com/blob/0c6fb1e2b222f089a886d5c85dfadd384ec9ce88/js/index.js#L171
-
 # Attribution
 Favicon from google fonts: https://fonts.google.com/icons `Vpn key`
 
