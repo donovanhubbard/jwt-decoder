@@ -17,7 +17,7 @@
                 <h2>Input encoded JWT</h2>
                 <textarea id="jwtInput">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</textarea>
                 <div class="encoder-footer">
-                    <button class="btn" onclick="bundle.decodeJWT()">Decode</button>
+                    <button class="btn btn-decode" onclick="bundle.decodeJWT()">Decode</button>
                 </div>
             </div>
             <div class="error-banner banner-off" id="error-banner">
@@ -28,7 +28,7 @@
                 <div class="output-container" >
                     <h2>Header</h2>
                     <div id="output-header" class="header">
-                        <textarea id="headerTextArea">
+                        <textarea id="headerTextArea" readonly>
 
                         </textarea>
                     </div>
@@ -36,7 +36,7 @@
                 <div class="output-container payload" >
                     <h2>Payload</h2>
                     <div id="output-payload" class="payload">
-                        <textarea id="payloadTextArea">
+                        <textarea id="payloadTextArea" readonly>
                             
                         </textarea>
                     </div>
