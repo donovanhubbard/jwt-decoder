@@ -46,7 +46,7 @@ textarea{
 }
 
 #jwtInput {
-    height: 200px;
+    height: 150px;
 }
 
 .btn {
@@ -82,8 +82,12 @@ textarea{
     background: #e6a647;
 }
 
+#headerTextArea {
+    height: 90px;
+}
+
 #payloadTextArea {
-    height: 200px;
+    height: 210px;
 }
 
 

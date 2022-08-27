@@ -1,6 +1,7 @@
 
 import * as DOMPurify from 'dompurify';
 import {Buffer} from 'buffer';
+import Beautify from 'js-beautify/js/lib/beautify';
 
 const jwtRE = /^([A-Za-z0-9+/_=]+)\.([A-Za-z0-9+/_=]+)\.([A-Za-z0-9+/_=]+)$/;
 
@@ -24,11 +25,21 @@ export function decodeJWT(){
             const cleanHeader = DOMPurify.sanitize(encodedHeader);
             const cleanPayload = DOMPurify.sanitize(encodedPayload);
 
-            const decodedHeader = Buffer.from(cleanHeader, 'base64');
-            const decodedPayload = Buffer.from(cleanPayload, 'base64');
+            const decodedHeader = Buffer.from(cleanHeader, 'base64').toString();
+            const decodedPayload = Buffer.from(cleanPayload, 'base64').toString();
 
-            headerTextArea.innerHTML = decodedHeader;
-            payloadTextArea.innerHTML = decodedPayload;
+            console.log(decodedHeader);
+            console.log(decodedPayload);
+
+            const formatedHeader = Beautify.js_beautify(decodedHeader, {
+                indent_with_tabs: true
+            });
+            const formatedPayload = Beautify.js_beautify(decodedPayload, {
+                indent_with_tabs: true
+            });
+
+            headerTextArea.innerHTML = formatedHeader;
+            payloadTextArea.innerHTML = formatedPayload;
             
 
         }catch(e){
