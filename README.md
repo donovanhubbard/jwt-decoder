@@ -11,6 +11,9 @@ npm run build:all
 
 The resulting assets will be produced in the `dist/` folder and are ready to be used on your static site host of choice.
 
+# Example
+For a running example of this site see https://fuele.github.io/jwt-decoder/dist/ 
+
 # Attribution
 Favicon from google fonts: https://fonts.google.com/icons `Vpn key`
 
