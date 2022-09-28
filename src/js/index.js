@@ -3,7 +3,7 @@ import * as DOMPurify from 'dompurify';
 import {Buffer} from 'buffer';
 import Beautify from 'js-beautify/js/lib/beautify';
 
-const jwtRE = /^([A-Za-z0-9+/_=]+)\.([A-Za-z0-9+/_=]+)\.([A-Za-z0-9+/_=]+)$/;
+const jwtRE = /^([A-Za-z0-9+/_=-]+)\.([A-Za-z0-9+/_=-]+)\.([A-Za-z0-9+/_=-]+)$/;
 
 export function decodeJWT(){ 
     clearError();
